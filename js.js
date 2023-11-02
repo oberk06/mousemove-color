@@ -23,9 +23,21 @@ for (i = 0; i < adet; i++) {
     let rastgele = Math.floor(Math.random() * renkler.length);
     kareler.style.backgroundColor = renkler[rastgele];
   });
-  kareler.addEventListener("touchstart", (event) => {
-    let rastgele = Math.floor(Math.random() * renkler.length);
-    kareler.style.backgroundColor = renkler[rastgele];
-    event.preventDefault(); // Dokunma olayının varsayılan davranışını önler
-  });
+
+  const mc = new Hammer(container);
+
+mc.on("swiperight", () => {
+  let rastgele = Math.floor(Math.random() * renkler.length);
+  container.style.backgroundColor = renkler[rastgele];
+});
+
+mc.on("swipeleft", () => {
+  let rastgele = Math.floor(Math.random() * renkler.length);
+  container.style.backgroundColor = renkler[rastgele];
+});
+  // kareler.addEventListener("touchstart", (event) => {
+  //   let rastgele = Math.floor(Math.random() * renkler.length);
+  //   kareler.style.backgroundColor = renkler[rastgele];
+  //   event.preventDefault(); // Dokunma olayının varsayılan davranışını önler
+  // });
 }
